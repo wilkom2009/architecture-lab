@@ -1,11 +1,11 @@
 package com.shopflow.orders.controller;
 
-import com.shopflow.orders.entity.Order;
 import com.shopflow.orders.dto.OrderRequest;
 import com.shopflow.orders.dto.OrderResponse;
 import com.shopflow.orders.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class OrderController {
     }
 
     @PostMapping
-    public OrderResponse create(@RequestBody OrderRequest request) {
+    public OrderResponse create(@Valid @RequestBody OrderRequest request) {
         return service.save(request);
     }
 

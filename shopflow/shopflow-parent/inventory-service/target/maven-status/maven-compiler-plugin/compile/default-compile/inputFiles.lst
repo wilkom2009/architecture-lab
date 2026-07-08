@@ -1,0 +1,12 @@
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/InventoryServiceApplication.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/controller/InventoryController.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/dto/CreateProductRequest.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/dto/ErrorResponse.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/dto/ReserveProductRequest.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/dto/UpdateQuantityRequest.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/exception/GlobalExceptionHandler.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/exception/InsufficientStockException.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/exception/ProductNotFoundException.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/model/ProductInventory.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/repository/ProductInventoryRepository.java
+/home/ubuntu/workshop/architecture-lab/shopflow/shopflow-parent/inventory-service/src/main/java/com/shopflow/inventory/service/InventoryService.java

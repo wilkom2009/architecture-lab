@@ -1,4 +1,4 @@
-package com.shopflow.orders.entity;
+package com.shopflow.orders.model;
 
 import jakarta.persistence.*;
 import lombok.*;

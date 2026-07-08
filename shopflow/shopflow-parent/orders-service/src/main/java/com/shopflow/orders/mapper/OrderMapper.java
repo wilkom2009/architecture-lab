@@ -2,7 +2,7 @@ package com.shopflow.orders.mapper;
 
 import com.shopflow.orders.dto.OrderRequest;
 import com.shopflow.orders.dto.OrderResponse;
-import com.shopflow.orders.entity.Order;
+import com.shopflow.orders.model.Order;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

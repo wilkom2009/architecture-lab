@@ -2,10 +2,13 @@ package com.shopflow.orders.service;
 
 import com.shopflow.orders.dto.OrderRequest;
 import com.shopflow.orders.dto.OrderResponse;
-import com.shopflow.orders.entity.Order;
+import com.shopflow.orders.model.Order;
 import com.shopflow.orders.mapper.OrderMapper;
+import com.shopflow.orders.client.InventoryClient;
 import com.shopflow.orders.repository.OrderRepository;
 import com.shopflow.orders.exception.ResourceNotFoundException;
+import com.shopflow.orders.producer.OrderEventProducer;
+import com.shopflow.orders.event.OrderCreatedEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,8 @@ public class OrderService {
 
     private final OrderRepository repository;
     private final OrderMapper mapper;
+    private final InventoryClient inventoryClient;
+    private final OrderEventProducer orderEventProducer;
 
     public List<OrderResponse> findAll() {
         return repository.findAll()
@@ -34,9 +39,21 @@ public class OrderService {
 
     public OrderResponse save(OrderRequest request) {
 
-        Order entity = mapper.toEntity(request);
+        inventoryClient.reserveProduct(
+            request.getProductName(),
+            request.getQuantity());
 
+        Order entity = mapper.toEntity(request);
         Order saved = repository.save(entity);
+        
+        OrderCreatedEvent event = new OrderCreatedEvent(
+            saved.getId(),
+            saved.getCustomerName(),
+            saved.getProductName(),
+            saved.getQuantity(),
+            saved.getPrice()
+        );
+        orderEventProducer.publish(event);
 
         return mapper.toResponse(saved);
     }
