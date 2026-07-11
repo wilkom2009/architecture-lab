@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderCreatedEvent {
 
+    private String eventId;
+    
     private Long orderId;
 
     private String customerName;

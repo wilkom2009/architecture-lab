@@ -1,5 +1,6 @@
 package com.shopflow.orders.service;
 
+import java.util.UUID;
 import com.shopflow.orders.dto.OrderRequest;
 import com.shopflow.orders.dto.OrderResponse;
 import com.shopflow.orders.model.Order;
@@ -47,6 +48,7 @@ public class OrderService {
         Order saved = repository.save(entity);
         
         OrderCreatedEvent event = new OrderCreatedEvent(
+            UUID.randomUUID().toString(),
             saved.getId(),
             saved.getCustomerName(),
             saved.getProductName(),
